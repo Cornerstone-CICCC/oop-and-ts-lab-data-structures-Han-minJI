@@ -8,6 +8,13 @@ const Queue = require('../lib/Queue');
 
 function storeCatalog(queue) {
   // your code here
+  const tempQueue = new Queue()
+  
+  for(let i =0; i<queue.size(); i++){
+  
+  }
+
+
 }
 
 const store = new Queue();

@@ -2,10 +2,28 @@
 // For example: 1 2 3 4 5 6 becomes 1 4 2 5 3 6
 // Make sure to implement the Queue principle (FIFO)
 
-const Queue = require('../lib/Queue');
+const Queue = require("../lib/Queue");
 
 function mixQueue(queue) {
   // your code here
+  const firstQueue = new Queue();
+  const secondQueue = new Queue();
+  const totalSize = queue.size();
+
+  while (!queue.isEmpty()) {
+    for (let i = 0; i < totalSize / 2; i++) {
+      firstQueue.enqueue(queue.dequeue());
+    }
+
+    for (let i = totalSize / 2; i < totalSize; i++) {
+      secondQueue.enqueue(queue.dequeue());
+    }
+  }
+
+  while (!firstQueue.isEmpty() || !secondQueue.isEmpty()) {
+    queue.enqueue(firstQueue.dequeue());
+    queue.enqueue(secondQueue.dequeue());
+  }
 }
 
 const queue = new Queue();
